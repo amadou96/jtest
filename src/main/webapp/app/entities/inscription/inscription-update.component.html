@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-inscription-heading" jhiTranslate="jtest5App.inscription.home.createOrEditLabel">Create or edit a Inscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.inscription.dateInscription" for="field_dateInscription">Date Inscription</label>
+                    <div class="input-group">
+                        <input id="field_dateInscription" type="text" class="form-control" name="dateInscription" ngbDatepicker #dateInscriptionDp="ngbDatepicker" formControlName="dateInscription"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateInscriptionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.inscription.niveauIns" for="field_niveauIns">Niveau Ins</label>
+                    <select class="form-control" id="field_niveauIns" name="niveauIns" formControlName="niveauIns">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="niveauOption.id === editForm.get('niveauIns')!.value?.id ? editForm.get('niveauIns')!.value : niveauOption" *ngFor="let niveauOption of niveauins; trackBy: trackById">{{ niveauOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.inscription.anneeAcademique" for="field_anneeAcademique">Annee Academique</label>
+                    <select class="form-control" id="field_anneeAcademique" name="anneeAcademique" formControlName="anneeAcademique">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="anneeAcademiqueOption.id === editForm.get('anneeAcademique')!.value?.id ? editForm.get('anneeAcademique')!.value : anneeAcademiqueOption" *ngFor="let anneeAcademiqueOption of anneeacademiques; trackBy: trackById">{{ anneeAcademiqueOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.inscription.etudiant" for="field_etudiant">Etudiant</label>
+                    <select class="form-control" id="field_etudiant" name="etudiant" formControlName="etudiant">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etudiantOption.id === editForm.get('etudiant')!.value?.id ? editForm.get('etudiant')!.value : etudiantOption" *ngFor="let etudiantOption of etudiants; trackBy: trackById">{{ etudiantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.inscription.classe" for="field_classe">Classe</label>
+                    <select class="form-control" id="field_classe" name="classe" formControlName="classe">
+                        <option *ngIf="!editForm.get('classe')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="classeOption.id === editForm.get('classe')!.value?.id ? editForm.get('classe')!.value : classeOption" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('classe')!.invalid && (editForm.get('classe')!.dirty || editForm.get('classe')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('classe')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

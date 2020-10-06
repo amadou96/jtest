@@ -1,0 +1,46 @@
+{
+  "name": "Niveau",
+  "fields": [
+    {
+      "fieldName": "intitule",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "classe",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "classes"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "formation",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "formation",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipName": "semestre",
+      "otherEntityName": "semestre",
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": [],
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "niveau"
+    }
+  ],
+  "changelogDate": "20200901105547",
+  "entityTableName": "niveau",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "searchEngine": false,
+  "databaseType": "sql"
+}

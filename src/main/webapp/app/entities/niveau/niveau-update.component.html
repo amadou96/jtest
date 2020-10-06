@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-niveau-heading" jhiTranslate="jtest5App.niveau.home.createOrEditLabel">Create or edit a Niveau</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.niveau.intitule" for="field_intitule">Intitule</label>
+                    <input type="text" class="form-control" name="intitule" id="field_intitule"
+                           formControlName="intitule"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jtest5App.niveau.formation" for="field_formation">Formation</label>
+                    <select class="form-control" id="field_formation" name="formation" formControlName="formation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="formationOption.id === editForm.get('formation')!.value?.id ? editForm.get('formation')!.value : formationOption" *ngFor="let formationOption of formations; trackBy: trackById">{{ formationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="jtest5App.niveau.semestre" for="field_semestres">Semestre</label>
+                    <select class="form-control" id="field_semestres" multiple name="semestres" formControlName="semestres">
+                        <option [ngValue]="getSelected(editForm.get('semestres')!.value, semestreOption)" *ngFor="let semestreOption of semestres; trackBy: trackById">{{ semestreOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

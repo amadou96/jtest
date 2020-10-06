@@ -1,0 +1,77 @@
+
+
+entity Demande {
+	date LocalDate required,
+	semestre String,
+    etat Etat
+}
+entity Etudiant {
+	nom String,
+	prenom String,
+    dateNaissance LocalDate,
+    email String
+}
+entity RP {
+	nom String,
+	prenom String
+}
+entity Inscription {
+	dateInscription LocalDate,
+}
+entity Classe {
+	intitule String
+}
+enum Etat {
+    RECU, EN_COURS, REFUSE
+}
+entity AnneeAcademique {
+	intitule String
+}
+entity Departement {
+	intitule String
+}
+entity Formation {
+	intitule String
+}
+entity Niveau {
+	intitule String
+}
+entity Semestre {
+ intitule String
+}
+relationship OneToOne {
+	RP{niveau} to Niveau
+}
+relationship OneToOne {
+	RP{formationRp} to Formation
+}
+relationship OneToOne {
+	Inscription{niveauIns} to Niveau
+}
+relationship OneToMany {
+	Inscription{etudiant} to Etudiant
+}
+relationship OneToMany {
+	Etudiant{demande} to Demande
+}
+relationship OneToMany {
+	Departement{formation} to Formation
+}
+relationship OneToMany {
+	Formation{niveau} to Niveau
+}
+relationship OneToMany {
+	Niveau{classes} to Classe
+}
+relationship OneToMany {
+	AnneeAcademique{inscription} to Inscription
+}
+relationship OneToMany {
+	Inscription{classeIns} to Classe
+}
+relationship OneToMany {
+	Demande{semestre} to Semestre
+}
+relationship OneToMany {
+	Demande{inscription} to Inscription
+}

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rp">
+            <h2><span jhiTranslate="jtest5App.rp.detail.title">Rp</span> {{ rp.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jtest5App.rp.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ rp.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.rp.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ rp.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.rp.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ rp.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.rp.user">User</span></dt>
+                <dd>
+                    {{ rp.user?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rp', rp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

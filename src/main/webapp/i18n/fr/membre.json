@@ -1,0 +1,26 @@
+{
+  "jtest5App": {
+    "membre": {
+      "home": {
+        "title": "Membres",
+        "createLabel": "Créer un nouveau Membre",
+        "createOrEditLabel": "Créer ou éditer un Membre",
+        "notFound": "Aucun Membre trouvé"
+      },
+      "created": "Un nouveau Membre a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Membre avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Membre avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Membre {{ id }} ?"
+      },
+      "detail": {
+        "title": "Membre"
+      },
+      "matricule": "Matricule",
+      "dateNaissance": "Date Naissance",
+      "lieuNaissance": "Lieu Naissance",
+      "user": "User",
+      "departement": "Departement"
+    }
+  }
+}

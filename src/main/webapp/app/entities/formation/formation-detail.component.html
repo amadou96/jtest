@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formation">
+            <h2><span jhiTranslate="jtest5App.formation.detail.title">Formation</span> {{ formation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jtest5App.formation.intitule">Intitule</span></dt>
+                <dd>
+                    <span>{{ formation.intitule }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.formation.departement">Departement</span></dt>
+                <dd>
+                    <div *ngIf="formation.departement">
+                        <a [routerLink]="['/departement', formation.departement?.id, 'view']">{{ formation.departement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/formation', formation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

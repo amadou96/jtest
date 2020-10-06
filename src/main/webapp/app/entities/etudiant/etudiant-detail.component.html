@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etudiant">
+            <h2><span jhiTranslate="jtest5App.etudiant.detail.title">Etudiant</span> {{ etudiant.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jtest5App.etudiant.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ etudiant.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ etudiant.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{ etudiant.dateNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.email">Email</span></dt>
+                <dd>
+                    <span>{{ etudiant.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.lieuNaissance">Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{ etudiant.lieuNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ etudiant.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ etudiant.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.ine">Ine</span></dt>
+                <dd>
+                    <span>{{ etudiant.ine }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.nin">Nin</span></dt>
+                <dd>
+                    <span>{{ etudiant.nin }}</span>
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.user">User</span></dt>
+                <dd>
+                    {{ etudiant.user?.login }}
+                </dd>
+                <dt><span jhiTranslate="jtest5App.etudiant.nationalite">Nationalite</span></dt>
+                <dd>
+                    <div *ngIf="etudiant.nationalite">
+                        <a [routerLink]="['/nationalite', etudiant.nationalite?.id, 'view']">{{ etudiant.nationalite?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etudiant', etudiant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

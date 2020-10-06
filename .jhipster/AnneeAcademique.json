@@ -1,0 +1,28 @@
+{
+  "name": "AnneeAcademique",
+  "fields": [
+    {
+      "fieldName": "intitule",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "inscription",
+      "otherEntityRelationshipName": "anneeAcademique",
+      "relationshipName": "inscription"
+    }
+  ],
+  "changelogDate": "20200901105247",
+  "entityTableName": "annee_academique",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

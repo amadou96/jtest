@@ -1,0 +1,31 @@
+{
+  "name": "Classe",
+  "fields": [
+    {
+      "fieldName": "intitule",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "classes",
+      "relationshipName": "niveau",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901105147",
+  "entityTableName": "classe",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "searchEngine": false,
+  "databaseType": "sql"
+}

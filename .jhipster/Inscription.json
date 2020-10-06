@@ -1,0 +1,55 @@
+{
+  "name": "Inscription",
+  "fields": [
+    {
+      "fieldName": "dateInscription",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "niveauIns",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "anneeAcademique",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "anneeAcademique",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipName": "etudiant",
+      "otherEntityName": "etudiant",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": [],
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "inscription"
+    },
+    {
+      "relationshipName": "classe",
+      "otherEntityName": "classe",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "inscription"
+    }
+  ],
+  "changelogDate": "20200901105047",
+  "entityTableName": "inscription",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "searchEngine": false,
+  "databaseType": "sql"
+}

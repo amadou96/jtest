@@ -1,0 +1,25 @@
+{
+  "jtest5App": {
+    "rp": {
+      "home": {
+        "title": "Rps",
+        "createLabel": "Créer un nouveau Rp",
+        "createOrEditLabel": "Créer ou éditer un Rp",
+        "notFound": "Aucun Rp trouvé"
+      },
+      "created": "Un nouveau Rp a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Rp avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Rp avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Rp {{ id }} ?"
+      },
+      "detail": {
+        "title": "Rp"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "matricule": "Matricule",
+      "user": "User"
+    }
+  }
+}

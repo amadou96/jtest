@@ -1,0 +1,35 @@
+{
+  "name": "Formation",
+  "fields": [
+    {
+      "fieldName": "intitule",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "formation",
+      "relationshipName": "niveau"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "formation",
+      "relationshipName": "departement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200901105447",
+  "entityTableName": "formation",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
